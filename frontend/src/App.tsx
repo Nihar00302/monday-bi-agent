@@ -128,7 +128,7 @@ try{
 
 const response =
 await fetch(
-"http://localhost:5000/api/dashboard"
+"https://monday-bi-agent-ogrh.onrender.com/api/dashboard"
 );
 
 
@@ -200,7 +200,7 @@ try{
 
 const response =
 await fetch(
-"http://localhost:5000/api/insights"
+"https://monday-bi-agent-ogrh.onrender.com/api/dashboard"
 );
 
 

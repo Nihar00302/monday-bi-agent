@@ -7,7 +7,7 @@ export interface ChatResponse {
 }
 
 export const api = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: 'https://monday-bi-agent-ogrh.onrender.com',
 })
 
 export async function sendChatMessage(question: string): Promise<ChatResponse> {
