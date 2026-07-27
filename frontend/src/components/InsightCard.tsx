@@ -1,10 +1,16 @@
+interface InsightItem {
+  description?: string;
+  impact?: string;
+  action?: string;
+}
+
 interface InsightCardProps {
 
   title: string;
 
   description: string;
 
-  items: string[];
+  items: InsightItem[];
 
   tone:
   | "amber"
@@ -12,7 +18,6 @@ interface InsightCardProps {
   | "violet";
 
 }
-
 
 
 export function InsightCard({
@@ -37,7 +42,6 @@ export function InsightCard({
   };
 
 
-
   return (
 
     <div
@@ -50,33 +54,22 @@ export function InsightCard({
       `}
     >
 
-
       <h2 className="text-xl font-semibold text-white">
-
         {title}
-
       </h2>
 
 
-
       <p className="mt-2 text-sm text-slate-400">
-
         {description}
-
       </p>
 
 
-
-
-
       <div className="mt-6 space-y-3">
-
 
         {
           items && items.length > 0 ?
 
           items.map((item,index)=>(
-
 
             <div
 
@@ -87,14 +80,45 @@ export function InsightCard({
               bg-slate-950/60
               border
               border-white/10
-              p-3
+              p-4
               text-sm
               text-slate-300
               "
 
             >
 
-              {item}
+              <p className="font-medium text-white">
+
+                {item.description}
+
+              </p>
+
+
+              {
+                item.impact && (
+
+                  <p className="mt-2 text-xs text-amber-300">
+
+                    Impact: {item.impact}
+
+                  </p>
+
+                )
+              }
+
+
+              {
+                item.action && (
+
+                  <p className="mt-2 text-xs text-emerald-300">
+
+                    Action: {item.action}
+
+                  </p>
+
+                )
+              }
+
 
             </div>
 
@@ -105,11 +129,11 @@ export function InsightCard({
 
           (
 
-          <div className="text-sm text-slate-500">
+            <div className="text-sm text-slate-500">
 
-            No insights available
+              No insights available
 
-          </div>
+            </div>
 
           )
 
