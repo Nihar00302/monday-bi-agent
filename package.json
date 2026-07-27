@@ -1,0 +1,31 @@
+{
+  "name": "monday-bi-agent",
+  "version": "1.0.0",
+  "description": "AI Business Intelligence Agent for Monday.com",
+  "main": "server/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "nodemon server/index.js",
+    "start": "node server/index.js"
+  },
+  "keywords": [
+    "monday",
+    "gemini",
+    "ai",
+    "business-intelligence",
+    "express"
+  ],
+  "author": "Nihar N",
+  "license": "MIT",
+  "dependencies": {
+    "@google/genai": "^2.13.0",
+    "axios": "^1.18.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.4.2",
+    "express": "^5.1.0",
+    "groq-sdk": "^1.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
