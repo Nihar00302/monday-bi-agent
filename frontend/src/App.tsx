@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 import {
   AlertTriangle,
-  ArrowUpRight,
   BriefcaseBusiness,
   CircleDollarSign,
   TrendingUp,
