@@ -192,77 +192,43 @@ error
 // ==========================
 
 
-async function loadInsights(){
+async function loadInsights() {
+  try {
 
-try{
-
-
-const response =
-await fetch(
-"https://monday-bi-agent-ogrh.onrender.com/api/dashboard"
-);
+    const response = await fetch(
+      "https://monday-bi-agent-ogrh.onrender.com/api/insights"
+    );
 
 
-
-const data =
-await response.json();
+    const data = await response.json();
 
 
-
-console.log(
-"INSIGHTS:",
-data
-);
-
+    console.log(
+      "INSIGHTS FROM API:",
+      data
+    );
 
 
-setInsights({
+    if(data.success && data.insights){
 
-risks:
+      setInsights({
+        risks: data.insights.risks || [],
+        opportunities: data.insights.opportunities || [],
+        recommendations: data.insights.recommendations || []
+      });
 
-(data.insights?.risks || [])
-.map(
-(item:any)=>
-`${item.risk || item.description || "Risk detected"} — Impact: ${item.impact || ""}`
-),
-
-
-
-opportunities:
-
-(data.insights?.opportunities || [])
-.map(
-(item:any)=>
-`${item.opportunity || item.description || "Opportunity detected"} — Impact: ${item.impact || ""}`
-),
+    }
 
 
+  } catch(error){
 
-recommendations:
+    console.error(
+      "Insights error:",
+      error
+    );
 
-(data.insights?.recommendations || [])
-.map(
-(item:any)=>
-`${item.recommendation || item.description || "Recommended action"} — Action: ${item.action || item.impact || ""}`
-)
-
-});
-
-
-
+  }
 }
-
-catch(error){
-
-console.error(
-"Insights Error:",
-error
-);
-
-}
-
-}
-
 
 
 
